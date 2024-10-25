@@ -11,6 +11,19 @@ def dog_years():
     ```
     """
 
+    normal_years = int(input("Input a dog's age in human years: "))
+
+    dog_y = 0
+    for n in range(1,normal_years+1):
+        if n<3:
+            dog_y += 10.5
+        else :
+            dog_y+=4
+    print("The dog's age in dog's years is",int(dog_y))
+            
+    
+    
+
     #enter your code here
 
 def fizzbuzz(num):
@@ -23,6 +36,21 @@ def fizzbuzz(num):
     Expected Output:
     fizzbuzz(15) => "1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz"
     """
+    output = ""
+    for n in range(1,num+1):
+        if n > 1: output+=' '
+        if n%3== 0 and n%5 ==0:
+            output+='FizzBuzz'
+        elif n%3 == 0:
+            output+='Fizz'
+        elif n%5==0 :
+            output+='Buzz'
+        else:
+            output+=str(n)
+            
+    return output
+            
+    
 
     #enter your code here
 
@@ -39,6 +67,16 @@ def word_lengths(sentence):
     Output: {'Aunty': 5, 'Yankho': 6, 'is': 2, 'amazing': 7}
     ```
     """
+    try:
+        mydict = {}
+        sentence = sentence.strip().split()
+        for word in sentence:
+            if word not in mydict.keys():
+                mydict[word]=len(word)
+    except:
+        raise ValueError
+
+    return mydict      
     
     #enter your code here
 
@@ -51,5 +89,13 @@ def cube_sum(number):
     cube_sum(123) => 1^3 + 2^3 + 3^3 = 1 + 8 + 27 = 36
     ```
     """
+    if type(number) != int or number <0:
+        raise ValueError
+    else:
+        sum= 0
+        for n in str(number):
+            sum += int(n)**3
+    return sum
     
     #enter your code here
+
